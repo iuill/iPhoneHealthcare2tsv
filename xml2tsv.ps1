@@ -5,8 +5,6 @@ Param(
 $xml = [XML](cat $path -Encoding UTF8)
 $nav = $xml.CreateNavigator()
 
-Write-Output "start`tend`tsource app`tvalue"
-
 $list = @()
 $format = "yyyy/MM/dd HH:mm:ss"
 $nav.Select("/HealthData/Record[@type='HKQuantityTypeIdentifierBodyMass']") | %{
@@ -18,4 +16,5 @@ $nav.Select("/HealthData/Record[@type='HKQuantityTypeIdentifierBodyMass']") | %{
     $list += "$start`t$end`t$srcApp`t$val"
 }
 
+Write-Output "start`tend`tsource app`tvalue"
 $list | sort | %{Write-Output $_}
