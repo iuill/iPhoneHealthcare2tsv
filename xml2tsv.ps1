@@ -1,11 +1,9 @@
-﻿
 Param(
     [parameter(mandatory=$true)][string]$path
 )
 
 $xml = [XML](cat $path -Encoding UTF8)
 $nav = $xml.CreateNavigator()
-
 
 Write-Output "start`tend`tsource app`tvalue"
 
